@@ -1,6 +1,7 @@
 package me.jez.myfirstplugin;
 
 import me.jez.myfirstplugin.Listeners.CreeperExplosionListener;
+import me.jez.myfirstplugin.Listeners.ShearSheepListener;
 import me.jez.myfirstplugin.Listeners.XPBottleBreakListener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,6 +18,7 @@ public final class MyFirstPlugin extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this,this);
         getServer().getPluginManager().registerEvents(new XPBottleBreakListener(),this);
         getServer().getPluginManager().registerEvents(new CreeperExplosionListener(),this);
+        getServer().getPluginManager().registerEvents(new ShearSheepListener(),this);
     }
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e){
