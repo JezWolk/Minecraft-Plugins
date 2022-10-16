@@ -1,4 +1,4 @@
-package me.jez.myfirstplugin.Listeners;
+package me.jez.mcplugins.Listeners;
 
 import org.bukkit.entity.Creeper;
 import org.bukkit.entity.Entity;
