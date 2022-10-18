@@ -1,4 +1,4 @@
-package me.jez.mcplugins.Listeners;
+package me.jez.myfirstplugin.Listeners;
 
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -14,25 +14,27 @@ public class XPBottleBreakListener implements Listener {
     @EventHandler
     public void onProjectileHit(ProjectileHitEvent e) {
         Entity entity = e.getEntity();
-        if ((entity instanceof ThrownExpBottle)) {
+        Player player = (Player) e.getEntity().getShooter();
+        if ((entity instanceof ThrownExpBottle) && player != null) {
             Location location = e.getHitBlock().getLocation();
-            e.getHitBlock().getWorld().spawnEntity(location, EntityType.FIREWORK);
+//            e.getHitBlock().getWorld().spawnEntity(location, EntityType.FIREWORK);
+            this.firework(player, entity);
             System.out.println("TRIPLED BY EXP BOTTLE");
         }
     }
-    public void firework (Player player){
+    public void firework (Player player, Entity entity){
 
-        Firework firework = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
+        Firework firework = (Firework) player.getWorld().spawnEntity(entity.getLocation(), EntityType.FIREWORK);
         FireworkMeta meta = firework.getFireworkMeta();
         FireworkEffect.Builder builder = FireworkEffect.builder();
         builder.withTrail().withFlicker().withFade(Color.GREEN, Color.WHITE, Color.YELLOW,
                         Color.BLUE, Color.FUCHSIA, Color.PURPLE, Color.MAROON, Color.LIME, Color.ORANGE)
                 .with(FireworkEffect.Type.BALL_LARGE).withColor(Color.GREEN);
         meta.addEffect(builder.build());
-        meta.setPower(1);
+        meta.setPower(4);
         firework.setFireworkMeta(meta);
         firework.setMaxLife(50);
-        firework.detonate();
+
     }
     @EventHandler
     public void onXPBottleBreak(ExpBottleEvent e){

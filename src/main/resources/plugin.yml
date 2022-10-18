@@ -4,3 +4,7 @@ main: me.jez.myfirstplugin.MyFirstPlugin
 api-version: 1.19
 authors: [ Jez ]
 description: My first plugin ever
+commands:
+  god:
+    description: Becomes invincible
+    usage: /<command>

@@ -1,4 +1,4 @@
-package me.jez.mcplugins.Listeners;
+package me.jez.myfirstplugin.Listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -12,9 +12,11 @@ public class JoinLeaveListener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         if (player.hasPlayedBefore()) {
-            e.setJoinMessage(ChatColor.GREEN + "Welcome back to the server" + ChatColor.YELLOW + "" + ChatColor.BOLD + player.getDisplayName() + ChatColor.GREEN + "We missed you!");
+            e.setJoinMessage(ChatColor.GREEN + "Welcome back to the server" + ChatColor.YELLOW + "" + ChatColor.BOLD + player.getDisplayName() + ChatColor.GREEN + " ,We missed you!");
+            System.out.println("DOG");
         } else {
             e.setJoinMessage(ChatColor.BLUE + "" + ChatColor.BOLD + player.getDisplayName() + ", " + ChatColor.BLUE + "welcome to the OMEGA SERVER");
+            System.out.println("CAT");
         }
     }
     @EventHandler

@@ -1,4 +1,4 @@
-package me.jez.mcplugins.Listeners;
+package me.jez.myfirstplugin.Listeners;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
